@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'UI/splash_screen.dart';
 import 'package:meta/dart2js.dart';
-import 'dart:js';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,8 +21,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      // theme: ThemeData(primarySwatch: co),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
     );
   }
 }
