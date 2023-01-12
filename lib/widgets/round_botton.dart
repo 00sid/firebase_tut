@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class RoundBotton extends StatelessWidget {
   final VoidCallback ontap;
   final String title;
-  const RoundBotton({super.key, required this.title, required this.ontap});
+  final bool loading;
+  const RoundBotton(
+      {super.key,
+      required this.title,
+      required this.ontap,
+      this.loading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +21,15 @@ class RoundBotton extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Center(
-          child: Text(
-            title,
-            style: TextStyle(color: Colors.white),
-          ),
+          child: loading
+              ? const CircularProgressIndicator(
+                  strokeWidth: 3,
+                  color: Colors.white,
+                )
+              : Text(
+                  title,
+                  style: const TextStyle(color: Colors.white),
+                ),
         ),
       ),
     );
